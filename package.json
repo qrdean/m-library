@@ -1,0 +1,51 @@
+{
+  "name": "m_library",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --prod",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "buildServer": "tsc"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^5.2.0",
+    "@angular/common": "^5.2.0",
+    "@angular/compiler": "^5.2.0",
+    "@angular/core": "^5.2.0",
+    "@angular/forms": "^5.2.0",
+    "@angular/http": "^5.2.0",
+    "@angular/platform-browser": "^5.2.0",
+    "@angular/platform-browser-dynamic": "^5.2.0",
+    "@angular/router": "^5.2.0",
+    "@types/node": "^9.4.7",
+    "body-parser": "^1.18.2",
+    "core-js": "^2.4.1",
+    "errorhandler": "^1.5.0",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.10",
+    "morgan": "^1.9.0",
+    "rxjs": "^5.5.6",
+    "zone.js": "^0.8.19"
+  },
+  "devDependencies": {
+    "@angular/cli": "~1.7.3",
+    "@angular/compiler-cli": "^5.2.0",
+    "@angular/language-service": "^5.2.0",
+    "@types/body-parser": "^1.16.8",
+    "@types/errorhandler": "^0.0.32",
+    "@types/mongodb": "^3.0.8",
+    "@types/mongoose": "^5.0.7",
+    "@types/morgan": "^1.7.35",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^4.0.1",
+    "run-sequence": "^2.2.1",
+    "ts-node": "^5.0.1",
+    "typescript": ">=2.4.2 <2.7.0"
+  }
+}
