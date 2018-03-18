@@ -1,4 +1,3 @@
-// model
 // express
 import { NextFunction, Response, Request, Router } from "express";
 
