@@ -1,25 +1,19 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-// Components
+// Application Modules
+import { AppRoutingModule } from "./app.routing";
+import { LibraryModule } from "./library-components/library.module";
+import { SharedModules } from "./shared/shared.module";
+// Bootstrap Components
 import { AppComponent } from "./app.component";
-import { LoginComponent } from "./login/login.component";
-// Material
-import {
-  MatToolbarModule,
-  MatButtonModule,
-  MatInputModule
-} from "@angular/material";
+
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent],
   imports: [
-    BrowserAnimationsModule,
+    LibraryModule,
     BrowserModule,
-    ReactiveFormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatInputModule
+    SharedModules,
+    AppRoutingModule // must be last
   ],
   providers: [],
   bootstrap: [AppComponent]
