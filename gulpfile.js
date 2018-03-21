@@ -1,5 +1,5 @@
 require("ts-node").register({
-    project: false,
-    disableWarnings: true
+  project: false,
+  disableWarnings: true
 });
-require("./gulpfile.ts")
+require("./gulpfile.ts");
