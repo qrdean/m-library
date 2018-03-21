@@ -1,4 +1,10 @@
 // TODO: Add props
 export interface Book {
-  name?: string;
+  loc?: string;
+  isbn?: number;
+  title?: string;
+  authorLastName?: string;
+  authorFirstName?: string;
+  price?: string;
+  available?: boolean;
 }

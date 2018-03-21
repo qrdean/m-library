@@ -1,0 +1,13 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input formControlName="username" matInput placeholder="Username" required>
+        <mat-error *ngIf="loginForm.get('username').hasError('required')">Your username is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input formControlName="password" matInput placeholder="Password" type="password" required>
+        <mat-error *ngIf="loginForm.get('password').hasError('required')">Your password is required</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button type="submit">Login</button>
+</form>
