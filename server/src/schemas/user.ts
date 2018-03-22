@@ -6,6 +6,6 @@ export var userSchema: Schema = new Schema({
   lastname: String,
   firstname: String,
   password: String,
-  email: String
+  username: String
   // extra user data
 });
