@@ -124,7 +124,7 @@ export class BookApi {
         }
 
         // save the book
-        Object.assign(book, res.body)
+        Object.assign(book, req.body)
           .save()
           .then((book: BookModel) => {
             res.json(book.toObject());
