@@ -4,6 +4,7 @@ import * as express from "express";
 import * as morgan from "morgan";
 import * as path from "path";
 import * as cors from "cors";
+import * as OktaJwtVerifier from "@okta/jwt-verifier";
 import errorHandler = require("errorhandler");
 
 // mongoose
@@ -44,6 +45,42 @@ export class Server {
 
     // add api
     this.api();
+  }
+
+  /**
+   * OktaJwtVerifier
+   */
+  oktaJwtVerifier = new OktaJwtVerifier({
+    issuer: "https://dev-399800.oktapreview.com/oauth2/default",
+    assertClaims: {
+      aud: "api://default"
+    }
+  });
+
+  /**
+   * A simple middleware that asserts valid access tokens and sends 401 responses
+   * if the token is not present or fails validation.  If the token is valid its
+   * contents are attached to req.jwt
+   */
+  authenticationRequired(req, res, next) {
+    const authHeader = req.headers.authorization || "";
+    const match = authHeader.match(/Bearer (.+)/);
+
+    if (!match) {
+      return res.status(401).end();
+    }
+
+    const accessToken = match[1];
+
+    return this.oktaJwtVerifier
+      .verifyAccessToken(accessToken)
+      .then(jwt => {
+        req.jwt = jwt;
+        next();
+      })
+      .catch(err => {
+        res.status(401).send(err.message);
+      });
   }
 
   /**
