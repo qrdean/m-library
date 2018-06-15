@@ -11,7 +11,9 @@ import errorHandler = require("errorhandler");
 import mongoose = require("mongoose");
 
 // REST API
+import { BookApi } from "./api/book";
 import { HerosApi } from "./api/heros";
+import { UserApi } from "./api/user";
 
 /**
  * The server.
@@ -51,7 +53,7 @@ export class Server {
    * OktaJwtVerifier
    */
   oktaJwtVerifier = new OktaJwtVerifier({
-    issuer: "https://dev-399800.oktapreview.com/oauth2/default",
+    issuer: process.env.ORG_URL,
     assertClaims: {
       aud: "api://default"
     }
@@ -122,6 +124,8 @@ export class Server {
 
     // create API routes
     HerosApi.create(router);
+    BookApi.create(router);
+    UserApi.create(router);
 
     // wire up the REST API
     this.app.use("/api", router);
