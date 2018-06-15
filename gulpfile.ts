@@ -16,7 +16,7 @@ gulp.task("clean", done => {
  * Copy start script.
  */
 gulp.task("copy", () => {
-  return gulp.src("server/bin").pipe(gulp.dest("dist/bin"));
+  return gulp.src("server/bin/*").pipe(gulp.dest("dist/bin"));
 });
 
 /**

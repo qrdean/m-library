@@ -4,6 +4,7 @@
     "outDir": "./server/build/out-tsc",
     "module": "commonjs",
     "moduleResolution": "node",
+    "types": [],
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

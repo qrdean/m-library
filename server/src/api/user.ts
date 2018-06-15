@@ -14,7 +14,7 @@ import { UserModel } from "./../models/user";
 export class UserApi {
   public static create(router: Router) {
     // Create a new User (register).
-    router.post("/", (req, res, next) => {
+    router.post("/user", (req: Request, res: Response, next: NextFunction) => {
       if (!req.body) return res.sendStatus(400);
       const newUser = {
         profile: {

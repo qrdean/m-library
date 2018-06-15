@@ -1,3 +1,4 @@
+require("dotenv").config();
 import { Request } from "express";
 process.env.NODE_ENV = "test";
 

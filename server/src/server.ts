@@ -6,7 +6,6 @@ import * as path from "path";
 import * as cors from "cors";
 import * as OktaJwtVerifier from "@okta/jwt-verifier";
 import errorHandler = require("errorhandler");
-
 // mongoose
 import mongoose = require("mongoose");
 
@@ -53,7 +52,7 @@ export class Server {
    * OktaJwtVerifier
    */
   oktaJwtVerifier = new OktaJwtVerifier({
-    issuer: process.env.ORG_URL,
+    issuer: "https://dev-399800.oktapreview.com/oauth2/default",
     assertClaims: {
       aud: "api://default"
     }

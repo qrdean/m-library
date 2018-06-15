@@ -1,7 +1,14 @@
 // TODO: ADD PROPS
 export interface User {
-  lastname?: string;
-  firstname?: string;
-  password?: string;
-  email?: string;
+  profile: {
+    lastname?: string;
+    firstname?: string;
+    login: string;
+    email: string;
+  };
+  credentials: {
+    password: {
+      value: string;
+    };
+  };
 }
