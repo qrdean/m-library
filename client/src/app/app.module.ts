@@ -35,7 +35,7 @@ const config = {
     SharedModules,
     HttpClientModule,
     OAuthModule.forRoot(),
-    // RouterModule.forRoot(),
+    // RouterModule.forRoot(appRoutes),
     // OktaAuthModule.initAuth(config),
     AppRoutingModule // must be last
   ],

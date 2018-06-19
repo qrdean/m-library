@@ -9,6 +9,7 @@ import {
 } from "@angular/material";
 // Okta
 import { OktaAuthWrapper } from "./auth/okta.auth.wrapper";
+import { AuthGuard } from "./auth/auth.guard.service";
 
 @NgModule({
   exports: [
@@ -18,6 +19,6 @@ import { OktaAuthWrapper } from "./auth/okta.auth.wrapper";
     ReactiveFormsModule,
     BrowserAnimationsModule
   ],
-  providers: [OktaAuthWrapper]
+  providers: [OktaAuthWrapper, AuthGuard]
 })
 export class SharedModules {}
