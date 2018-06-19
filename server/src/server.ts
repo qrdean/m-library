@@ -63,7 +63,7 @@ export class Server {
    * if the token is not present or fails validation.  If the token is valid its
    * contents are attached to req.jwt
    */
-  authenticationRequired(req, res, next) {
+  public authenticationRequired(req, res, next) {
     const authHeader = req.headers.authorization || "";
     const match = authHeader.match(/Bearer (.+)/);
 
@@ -121,13 +121,21 @@ export class Server {
       }
     );
 
-    // create API routes
+    // create API route
     HerosApi.create(router);
     BookApi.create(router);
     UserApi.create(router);
 
     // wire up the REST API
     this.app.use("/api", router);
+
+    this.app.get("/api/book", this.authenticationRequired, (req, res) => {
+      res.json(req["jwt"]);
+    });
+
+    this.app.get("/api/user", this.authenticationRequired, (req, res) => {
+      res.json(req["jwt"]);
+    });
 
     // enable CORS pre-flight
     router.options("*", cors(corsOptions));
