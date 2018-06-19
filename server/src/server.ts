@@ -6,13 +6,12 @@ import * as path from "path";
 import * as cors from "cors";
 import * as OktaJwtVerifier from "@okta/jwt-verifier";
 import errorHandler = require("errorhandler");
-
 // mongoose
 import mongoose = require("mongoose");
 
 // REST API
-import { HerosApi } from "./api/heros";
 import { BookApi } from "./api/book";
+import { HerosApi } from "./api/heros";
 import { UserApi } from "./api/user";
 
 /**
@@ -122,20 +121,21 @@ export class Server {
       }
     );
 
-    // create API routes
+    // create API route
+    HerosApi.create(router);
     BookApi.create(router);
-    // UserApi.create(router);
+    UserApi.create(router);
 
     // wire up the REST API
     this.app.use("/api", router);
 
-    this.app.get('/api/book', this.authenticationRequired, (req, res) => {
-      res.json(req['jwt'])
-    })
+    this.app.get("/api/book", this.authenticationRequired, (req, res) => {
+      res.json(req["jwt"]);
+    });
 
-    this.app.get('/api/user', this.authenticationRequired, (req, res) => {
-      res.json(req['jwt'])
-    })
+    this.app.get("/api/user", this.authenticationRequired, (req, res) => {
+      res.json(req["jwt"]);
+    });
 
     // enable CORS pre-flight
     router.options("*", cors(corsOptions));

@@ -50,6 +50,13 @@
   },
   "defaults": {
     "styleExt": "scss",
+    "serve": {
+      "/": {
+        "target": "http://localhost:8080",
+        "secure": false,
+        "logLevel": "debug"
+      }
+    },
     "class": {
       "spec": false
     },

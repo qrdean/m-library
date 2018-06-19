@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import { Component, Inject } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { OktaAuthWrapper } from "../../shared/auth/okta.auth.wrapper";
+import { OAuthService } from "@okta/okta-auth-js";
 
 @Component({
   selector: "library-login",
@@ -8,7 +10,10 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private oktaAuthWrapper: OktaAuthWrapper,
+    private formBuilder: FormBuilder // private oauthService: OAuthService
+  ) {}
   ngOnInit() {
     this.buildForm();
   }
@@ -21,6 +26,11 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.log("Submit", this.loginForm.value);
+    this.oktaAuthWrapper
+      .login(
+        this.loginForm.get("username").value,
+        this.loginForm.get("password").value
+      )
+      .catch(err => console.error("error logging in", err));
   }
 }

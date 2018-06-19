@@ -7,6 +7,8 @@ import {
   MatButtonModule,
   MatInputModule
 } from "@angular/material";
+// Okta
+import { OktaAuthWrapper } from "./auth/okta.auth.wrapper";
 
 @NgModule({
   exports: [
@@ -15,6 +17,7 @@ import {
     MatInputModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
-  ]
+  ],
+  providers: [OktaAuthWrapper]
 })
 export class SharedModules {}
